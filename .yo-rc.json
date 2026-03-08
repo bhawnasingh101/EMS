@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.20.0",
+    "sdksVersions": {},
+    "version": "1.22.2",
+    "libraryName": "ems",
+    "libraryId": "ed93c1a3-d752-4775-98f5-653705ce2e55",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "ems",
+    "solutionShortDescription": "ems description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
