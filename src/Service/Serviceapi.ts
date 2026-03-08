@@ -14,7 +14,21 @@ export class CommonServiceClassApi{
         try{
             const list =this.web.lists.getByTitle(ListName.FirstList);
             const items=await list.items.add({
-                Title:formData.Name
+                Title:formData.Name,
+                Email:formData.Email,
+                Age:parseInt(formData.Age),
+                Salary:parseFloat(formData.Salary),
+                FullAddress:formData.FullAddress,
+                Gender:formData.Gender,
+                Skills:{results:formData.Skills},
+                //ManagerId:[],
+                //Manager:[],
+                //Location:"",
+                RelocationReq:formData.RelocationReq,
+                //AdminId:0,
+                //Admin:"",
+                Department:formData.Department
+                //DOB:""
             });
             return items;
         }
