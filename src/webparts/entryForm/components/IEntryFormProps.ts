@@ -3,4 +3,8 @@ export interface IEntryFormProps {
   
   context:WebPartContext;
   siteurl:string;
+  departmentoptions:any;
+  skillsoptions:any;
+  genderoptions:any;
+  locationoptions:any;
 }

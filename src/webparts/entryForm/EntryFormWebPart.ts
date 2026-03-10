@@ -11,6 +11,7 @@ import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import * as strings from 'EntryFormWebPartStrings';
 import EntryForm from './components/EntryForm';
 import { IEntryFormProps } from './components/IEntryFormProps';
+import GetChoiceValuesClassApi from '../../Service/ChoicesServiceapi';
 
 export interface IEntryFormWebPartProps {
   description: string;
@@ -18,9 +19,12 @@ export interface IEntryFormWebPartProps {
 
 export default class EntryFormWebPart extends BaseClientSideWebPart<IEntryFormWebPartProps> {
 
-  private _isDarkTheme: boolean = false;
-  private _environmentMessage: string = '';
+  private choiceClassService!:GetChoiceValuesClassApi;
 
+  protected async onInit(): Promise<void> {
+    this.choiceClassService=new GetChoiceValuesClassApi(this.context);
+    return super.onInit();
+  }
   
 
   public async render(): Promise<void>  {
@@ -28,7 +32,11 @@ export default class EntryFormWebPart extends BaseClientSideWebPart<IEntryFormWe
       EntryForm,
       {
         context:this.context,
-        siteurl:this.context.pageContext.web.absoluteUrl
+        siteurl:this.context.pageContext.web.absoluteUrl,
+       departmentoptions:await this.choiceClassService.getChoiceValues(this.context.pageContext.web.absoluteUrl,"Department"),
+       skillsoptions:await this.choiceClassService.getChoiceValues(this.context.pageContext.web.absoluteUrl,"Skills"),
+       genderoptions:await this.choiceClassService.getChoiceValues(this.context.pageContext.web.absoluteUrl,"Gender"),
+       locationoptions:await this.choiceClassService.getLookupValues()
       }
     );
 

@@ -6,12 +6,12 @@ export interface IEmpEntryFormState{
     FullAddress:string;
     Gender:string;
     Skills:any[];
-    //ManagerId:any[];
-    //Manager?:any[];
-    //Location:any;
+    ManagerId:any[];
+    Manager?:any[];
+    Location:any;
     RelocationReq:boolean;
-    //AdminId:number;
-    //Admin?:any;
+    AdminId:number;
+    Admin?:any;
     Department:any;
-    //DOB:any;
+    DOB:any;
 }
